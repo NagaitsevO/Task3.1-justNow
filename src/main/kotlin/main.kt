@@ -1,19 +1,17 @@
 fun main() {
-    var likes = 0
+    var seconds = 0
+    var unitOfTime = toFindUnitsOfTime(seconds)
+    var message = "Время не определено"
 
-    while (likes <= 1112) {
-        var ending: String = "подписчиков"
-        var ones = likes % 10
-        var tens = likes % 100
-        if (!((tens >= 11) && (tens <= 14))) {
-            when (ones) {
-                1 -> ending = "подписчик"
-                2 -> ending = "подписчика"
-                3 -> ending = "подписчика"
-                4 -> ending = "подписчика"
-            }
+    while (seconds <= 3600) {
+        unitOfTime = toFindUnitsOfTime(seconds)
+        when (unitOfTime) {
+            unitsOfTime.JUST_NOW -> message = justNowForm(seconds)
+            unitsOfTime.MINUTES_AGO -> message = minutesForm(seconds)
         }
-        println("У Вас $likes $ending")
-        likes++
+        println(message)
+        seconds++
     }
+
+
 }
