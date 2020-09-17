@@ -1,22 +1,22 @@
 fun toFindUnitsOfTime(seconds: Int): unitsOfTime {
     var unitOfTime = unitsOfTime.JUST_NOW
 
-    if ((seconds >= 0) && (seconds <= 60)) {
+    if ((seconds >= 0) && (seconds <= 59)) {
         unitOfTime = unitsOfTime.JUST_NOW
     } else {
-        if ((seconds >= 61) && (seconds <= 60 * 60)) {
+        if ((seconds >= 60) && (seconds <= 60 * 60 - 1)) {
             unitOfTime = unitsOfTime.MINUTES_AGO
         } else {
-            if ((seconds >= 60 * 60 + 1) && (seconds <= 24 * 60 * 60)) {
+            if ((seconds >= 60 * 60) && (seconds <= 24 * 60 * 60 - 1)) {
                 unitOfTime = unitsOfTime.HOURS_AGO
             } else {
-                if ((seconds >= 24 * 60 * 60 + 1) && (seconds <= 48 * 60 * 60)) {
+                if ((seconds >= 24 * 60 * 60) && (seconds <= 48 * 60 * 60 - 1)) {
                     unitOfTime = unitsOfTime.TODAY
                 } else {
-                    if ((seconds >= 48 * 60 * 60 + 1) && (seconds <= 72 * 60 * 60)) {
+                    if ((seconds >= 48 * 60 * 60) && (seconds <= 72 * 60 * 60 - 1)) {
                         unitOfTime = unitsOfTime.YESTERDAY
                     } else {
-                        if ((seconds >= 72 * 60 * 60 + 1) && (seconds <= 72 * 60 * 60)) {
+                        if (seconds >= 72 * 60 * 60) {
                             unitOfTime = unitsOfTime.LONG_TIME_AGO
                         }
                     }
